@@ -12,6 +12,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
 
@@ -24,6 +26,7 @@ jobs:
       run: ./compile.sh
 
     - name: Release
+    
       uses: ncipollo/release-action@v1
       with:
         artifacts: "*.zip"

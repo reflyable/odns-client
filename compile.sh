@@ -2,14 +2,16 @@
 
 mkdir win-amd64
 cp windows.exe ./win-amd64
+cp corefile ./win-amd64
 mkdir macos-amd64
 cp macos.sh ./macos-amd64
+cp corefile ./macos-amd64
 mkdir macos-arm64
 cp macos.sh ./macos-arm64
-
+cp corefile ./macos-arm64
 mkdir linux-amd64
 cp linux.sh ./linux-amd64
-
+cp corefile ./linux-amd64
 git clone https://github.com/coredns/coredns
 cd coredns
 sed  -i '50 i vpn-send:github.com/reflyable/odns/vpn-send' plugin.cfg
