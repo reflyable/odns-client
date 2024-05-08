@@ -1,0 +1,5 @@
+.:53 {
+    cache
+    bind 127.0.0.1
+    vpn-send reg.peerdns.net. 101.7.7.7:53
+}
