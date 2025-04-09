@@ -9,24 +9,33 @@ on:
       - "*"
 
 jobs:
-
+  build-exe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PS2exe module
+        shell: pwsh
+        run: Install-Module ps2exe
+      - name: build
+        shell: pwsh
+        run: ps2exe .\ps.ps1 .\windows.exe -requireAdmin
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.22'
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
 
-    - name: Build
-      run: ./compile.sh
+      - name: Build
+        run: ./compile.sh
 
-    - name: Release
-    
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "*.zip"
+      - name: Release
+      
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "*.zip"
