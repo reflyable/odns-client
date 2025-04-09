@@ -1,5 +1,5 @@
 .:53 {
     cache
     bind 127.0.0.1
-    vpn-send reg.peerdns.net. 1.1.1.1:53
+  vpn-send o.xhaoma.net. 202.112.47.188:53
 }
