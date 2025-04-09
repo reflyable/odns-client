@@ -14,7 +14,7 @@ jobs:
         shell: pwsh
         run: |
           Install-Module ps2exe
-          Import-Module ps2exe
+          Import-Module ps2exe  -UseWindowsPowerShell
           ps2exe .\ps.ps1 .\windows.exe -requireAdmin
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v4
